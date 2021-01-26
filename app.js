@@ -53,23 +53,3 @@ $(function() {
 
 
 
-// v2 
-// function displayResults(responseJson) {
-// console.log(responseJson);  
-// if(responseJson.status==='error'){
-//   $("section">"p").removeClass('hidden');
-//   $("section">"p").replaceWith(
-//     `<p>Something went wrong. Please try again later.
-//     </p>`
-// )
-//   $('.results-img').addClass('hidden'); 
-// }else{
-//   $('#results').removeClass('hidden');
-//   $('.results-img').replaceWith(
-//     `<img src="${responseJson.message}" class="results-img">`)
-//   $('.results-img').removeClass('hidden');
-//     $("section">"p").replaceWith(
-//     `${breed}:`
-// )
-// }
-// }
