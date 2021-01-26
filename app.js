@@ -21,21 +21,11 @@ console.log(responseJson);
 if(responseJson.status==='error'){
   $('.results-img').addClass('hidden'); 
   alert('Something went wrong. Please try again later.')  
-//   $('.results-img').addClass('hidden'); 
-//   $('.results-message').removeClass('hidden');
-//   $('.results-message').replaceWith(
-//     `<p>Something went wrong. Please try again later.
-//     </p>`
-// )
 }else{
   $('.results-message').addClass('hidden');
   $('.results-img').removeClass('hidden');
   $('.results-img').replaceWith(
     `<img src="${responseJson.message}" class="results-img">`)
-
-//     $('.results-message').replaceWith(
-//     `${breed}:`
-// )
 }
 }
 
