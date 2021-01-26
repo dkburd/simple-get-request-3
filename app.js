@@ -19,12 +19,13 @@ function getDogImages() {
 function displayResults(responseJson) {
 console.log(responseJson);  
 if(responseJson.status==='error'){
-  $('.results-img').addClass('hidden'); 
-  $('.results-message').removeClass('hidden');
-  $('.results-message').replaceWith(
-    `<p>Something went wrong. Please try again later.
-    </p>`
-)
+//   $('.results-img').addClass('hidden'); 
+//   $('.results-message').removeClass('hidden');
+//   $('.results-message').replaceWith(
+//     `<p>Something went wrong. Please try again later.
+//     </p>`
+// )
+  alert('Something went wrong. Please try again later.')
 }else{
   $('.results-message').addClass('hidden');
   $('.results-img').removeClass('hidden');
