@@ -2,7 +2,7 @@ let breed=$('#js-select-breed').val().toLowerCase()
 
 function updateBreed(){
 breed=$('#js-select-breed').val().toLowerCase();
-
+$( ".results-message").empty();
 }
 
 function getDogImages() {
@@ -18,14 +18,23 @@ function getDogImages() {
 
 function displayResults(responseJson) {
 console.log(responseJson);  
-if(responseJson.status==='error'){
-  $('.results-img').addClass('hidden'); 
-  alert('Something went wrong. Please try again later.')  
-}else{
-  $('.results-message').addClass('hidden');
+status=responseJson.status
+if(status==='success'){
+  $( ".results-message").empty();
   $('.results-img').removeClass('hidden');
   $('.results-img').replaceWith(
     `<img src="${responseJson.message}" class="results-img">`)
+}else{
+  if(status==='error'){
+  $('.results-img').addClass('hidden'); 
+  // alert('Something went wrong. Please try again later.')
+  $('.results-message').removeClass('hidden');
+  $('.results-message').replaceWith(
+    `<p>Something went wrong. Please try again later.
+    </p>`
+)
+
+  }
 }
 }
 
@@ -33,6 +42,7 @@ function watchForm() {
   $('#js-select-breed-form').submit(event => {
     event.preventDefault();
     getDogImages();
+    $( ".results-message").empty();
   });
 }
 
