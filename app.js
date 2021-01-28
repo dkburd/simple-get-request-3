@@ -19,22 +19,17 @@ function getDogImages() {
 function displayResults(responseJson) {
 console.log(responseJson);  
 status=responseJson.status
-if(status==='success'){
+if(status==='error'){
+  $('.results-img').addClass('hidden'); 
+  $('.results-message').removeClass('hidden');
+  $('#results p')[0].innerHTML="Something went wrong. Please try again later."  
+
+}else{
   $( ".results-message").empty();
   $('.results-img').removeClass('hidden');
   $('.results-img').replaceWith(
     `<img src="${responseJson.message}" class="results-img">`)
-}else{
-  if(status==='error'){
-  $('.results-img').addClass('hidden'); 
-  // alert('Something went wrong. Please try again later.')
-  $('.results-message').removeClass('hidden');
-  $('.results-message').replaceWith(
-    `<p>Something went wrong. Please try again later.
-    </p>`
-)
-
-  }
+  $('#results p')[0].innerHTML=""
 }
 }
 
@@ -50,6 +45,3 @@ $(function() {
   console.log('App loaded! Waiting for submit!');
   watchForm();
 });
-
-
-
